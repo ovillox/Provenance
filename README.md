@@ -7,16 +7,6 @@ Recommended Hardware: 4 Cores, 8GB RAM, 200GB of storage (NVME)
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip -y
 ```
-
-Node Name
-Wallet
-Port
-57
-Pruning
-Pruning Keep Recent
-100
-Pruning Interval
-19
 **install go, if needed**
 ```
 cd $HOME
@@ -40,7 +30,8 @@ echo "export PROVENANCE_PORT="57"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
-# download binary
+**download binary**
+```
 cd $HOME
 rm -rf bin
 wget https://github.com/provenance-io/provenance/releases/download/v1.20.2/provenance-linux-amd64-v1.20.2.zip
@@ -51,6 +42,7 @@ mv ~/bin/provenanced ~/go/bin/
 sudo cp ~/bin/libwasmvm.x86_64.so /usr/lib/
 sudo ldconfig
 export PIO_HOME=~/.provenanced
+```
 
 # config and init app
 provenanced init $MONIKER --chain-id $PROVENANCE_CHAIN_ID
