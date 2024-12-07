@@ -57,11 +57,13 @@ wget -O $HOME/.provenanced/config/genesis.json https://server-5.itrocket.net/mai
 wget -O $HOME/.provenanced/config/addrbook.json  https://server-5.itrocket.net/mainnet/provenance/addrbook.json
 ```
 
-# set seeds and peers
+**set seeds and peers**
+```
 SEEDS="a280ec7a1b563cb71510723b860ed37d40494308@provenance-mainnet-seed.itrocket.net:57656"
 PEERS="b75bb5d0c033b5a8ca24df607a757d09e4f99acd@provenance-mainnet-peer.itrocket.net:57656,9067507fa25b1e6c43eeead4962b123f3907232a@35.237.210.188:26656,fef2bd237b5cacd1b948bce2f6e79590244316ca@65.109.92.241:20006,c97f6696ac1b5205c06144519c99dae7a8488c3c@88.198.32.17:29656,9fa182c140f35a36f1565a580a7567903292d8a9@65.21.91.160:27100,551104038ad50e67a1691efb5cf8553a631cccc6@[2a02:c206:2093:4873::2]:26656,f2c462569bda6e51e7796483a358eb6b3ab69d33@51.195.88.136:15656,7e2c9022216834e5136daae9a1b105a031977f3c@65.109.28.177:29656,ec4a75f6c9646555957497c96052827edd2ebd06@34.75.176.18:26656,46fe371024e558b562383d7bfae59196427c2fe1@65.109.112.148:20006,686758c9ca8e3178d1a212c6edba3b14ac569890@116.202.156.139:28212"
 sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*seeds *=.*/seeds = \"$SEEDS\"/}" \
        -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.provenanced/config/config.toml
+```
 
 # set custom ports in app.toml
 sed -i.bak -e "s%:1317%:${PROVENANCE_PORT}317%g;
