@@ -117,15 +117,18 @@ WantedBy=multi-user.target
 EOF
 ```
 
-# reset and download snapshot
+**reset and download snapshot**
+```
 provenanced tendermint unsafe-reset-all --home $HOME/.provenanced
 if curl -s --head curl https://server-5.itrocket.net/mainnet/provenance/provenance_2024-11-30_20548711_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
   curl https://server-5.itrocket.net/mainnet/provenance/provenance_2024-11-30_20548711_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.provenanced
     else
   echo "no snapshot found"
 fi
+```
 
-# enable and start service
+**enable and start service**
+```
 sudo systemctl daemon-reload
 sudo systemctl enable provenanced
 sudo systemctl restart provenanced && sudo journalctl -u provenanced -f
@@ -133,6 +136,8 @@ Automatic Installation
 pruning: custom: 100/0/19 | indexer: null
 
 source <(curl -s https://itrocket.net/api/mainnet/provenance/autoinstall/)
+```
+
 Create wallet
 # to create a new wallet, use the following command. don’t forget to save the mnemonic
 provenanced keys add $WALLET
