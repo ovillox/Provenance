@@ -220,8 +220,11 @@ provenanced tx staking create-validator validator.json \
 	--gas auto --gas-adjustment 1.5
 
 ```
-Monitoring
+
+**Monitoring**
+```
 If you want to have set up a monitoring and alert system use our cosmos nodes monitoring guide with tenderduty
+```
 
 Security
 To protect you keys please don`t share your privkey, mnemonic and follow basic security rules
