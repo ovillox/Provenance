@@ -221,20 +221,11 @@ provenanced tx staking create-validator validator.json \
 
 ```
 
-**Monitoring**
-```
-If you want to have set up a monitoring and alert system use our cosmos nodes monitoring guide with tenderduty
-```
 
-Security
-To protect you keys please don`t share your privkey, mnemonic and follow basic security rules
+**Firewall security**
 
-Set up ssh keys for authentication
-You can use this guide to configure ssh authentication and disable password authentication on your server
-
-Firewall security
 Set the default to allow outgoing connections, deny all incoming, allow ssh and node p2p port
-
+```
 sudo ufw default allow outgoing 
 sudo ufw default deny incoming 
 sudo ufw allow ssh/tcp 
@@ -247,3 +238,5 @@ sudo rm -rf /etc/systemd/system/provenanced.service
 sudo rm $(which provenanced)
 sudo rm -rf $HOME/.provenanced
 sed -i "/PROVENANCE_/d" $HOME/.bash_profile
+```
+
